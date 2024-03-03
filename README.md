@@ -1,5 +1,5 @@
-<H3>ENTER YOUR NAME</H3>
-<H3>ENTER YOUR REGISTER NO.</H3>
+<H3>MOHAMED ROSHAN S</H3>
+<H3>212222040101</H3>
 <H3>EX. NO.1</H3>
 <H3>DATE</H3>
 <H1 ALIGN =CENTER> Introduction to Kaggle and Data preprocessing</H1>
@@ -37,12 +37,90 @@ STEP 5:Normalizing the data<BR>
 STEP 6:Splitting the data into test and train<BR>
 
 ##  PROGRAM:
-TYPE YOUR CODE HERE
+```py
 
+#import libraries
+from google.colab import drive
+drive.mount('/content/drive')
+import pandas as pd
+import seaborn as sns
+import io
+from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split
+from scipy import stats
+import numpy as np
 
+```
+```py
+
+#Read the dataset from drive
+dataset = pd.read_csv('/content/drive/MyDrive/Colab Notebooks/NEURAL NETWORKS/Churn_Modelling.csv',index_col="RowNumber")
+dataset.head()
+
+```
+```py
+
+# Finding Missing Values
+print(dataset.isnull().sum())
+
+```
+```py
+
+#Handling Missing Values
+dataset=dataset.drop(['Surname', 'Geography','Gender'], axis=1)
+
+```
+```py
+
+#Check for Duplicates
+dataset.duplicated().sum()
+
+```
+```py
+
+#Normalize the dataset
+scaler=StandardScaler()
+dataset=pd.DataFrame(scaler.fit_transform(dataset))
+dataset.head()
+
+```
+```py
+
+#split the dataset into input and output
+X,Y=dataset.iloc[:,:-1].values ,dataset.iloc[:,-1].values
+print('Input:\n',X,'\nOutput:\n',Y)
+
+```
+```py
+
+#splitting the data for training & Testing
+Xtrain,Xtest,Ytrain,Ytest = train_test_split(X, Y, test_size=0.2)
+print("Xtrain:" ,len(Xtrain), "\nXtest:", len(Xtest))
+print("\nYtrain:" ,len(Ytrain), "\nYtest:", len(Ytest))
+
+```
 ## OUTPUT:
-SHOW YOUR OUTPUT HERE
 
+### READ THE DATASET : 
+
+![DATSET](Screenshot%202024-03-03%20155233.png)
+
+### FINDING MISSING VALUES : 
+
+![MISSING VALLUES](Screenshot%202024-03-03%20155258.png)
+
+### CHECK FOR DUPLICATES : 
+
+![DUPLICATES](Screenshot%202024-03-03%20155320.png)
+
+### NORMALIZE THE DATASET : 
+
+![NORMALIZED](Screenshot%202024-03-03%20155343.png)
+
+### SPLITTING THE DATA FOR TRAINING AND TESTING : 
+
+![SPLITTED DATASET](Screenshot%202024-03-03%20155413.png)
 
 ## RESULT:
 Thus, Implementation of Data Preprocessing is done in python  using a data set downloaded from Kaggle.
