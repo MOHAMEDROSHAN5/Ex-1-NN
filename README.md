@@ -1,7 +1,7 @@
-<H3>MOHAMED ROSHAN S</H3>
-<H3>212222040101</H3>
+<H3>NAME : MOHAMED ROSHAN S</H3>
+<H3>REGISTER NUMBER : 212222040101</H3>
 <H3>EX. NO.1</H3>
-<H3>DATE</H3>
+<H3>DATE : </H3>
 <H1 ALIGN =CENTER> Introduction to Kaggle and Data preprocessing</H1>
 
 ## AIM:
